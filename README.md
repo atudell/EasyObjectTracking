@@ -1,19 +1,22 @@
 # EasyObjectTracking
-An implementation of mean shift and cam shift object tracking in C++
-
 The purpose of this program is to demonstrate usage of mean shift and cam shift tracking in OpenCV. Its secondary purpose is to make use of object tracking simpler.
+This program also acts as the C++ implementation of the version I created: https://github.com/atudell/Easy-Object-Tracking-Py
 
+## Initialization
 A video may be initialized using the ObjectTrack object. This calls for an attribute for either the path to a pre-recorded video or a live stream video using the camera number
 as a string. For example:
 
+```
 // Create new object with a pre-recorded video
 ObjectTrack example("C:path/to/video.mp4")
 
 // Create new object with a live stream from the 0th camera on a system (ie, the default for most computers)
 ObjectTrack example2("0")
-
+```
+## Object Tracking
 The method objectTrack may then be called:
-objectTrack(int x, int y, int width, int height, bool image, string image_path = "", string method = "cam")
+
+```objectTrack(int x, int y, int width, int height, bool image, string image_path = "", string method = "cam")```
 
 int x is the x coordinate of the initial Region of Interest (ROI)
 int y is the y coordinate of the initial ROI
@@ -25,5 +28,4 @@ string image_path is the path to an image, if it is used. By default, this is bl
 string method is the method of image tracking. By default, "cam" is used for cam shift tracking. "mean" may be used for mean shift tracking. Using anything else
   throw an error.
 
-example:
-example.objectTrack(200, 200, 100, 100, false, "", "mean");
+```example.objectTrack(200, 200, 100, 100, false, "", "mean");```
